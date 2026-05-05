@@ -1,0 +1,4 @@
+# PG_CHANGED: when doing an upstream merge, new changes should be added to this file and .yarnrc.yml
+nodeLinker: node-modules
+plugins:
+  - .yarn/plugins/linker.cjs
