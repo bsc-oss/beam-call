@@ -1,0 +1,261 @@
+{
+  "a11y": {
+    "user_menu": "Menu utilisateur"
+  },
+  "action": {
+    "close": "Fermer",
+    "copy_link": "Copier le lien",
+    "go": "Commencer",
+    "invite": "Inviter",
+    "no": "Non",
+    "register": "S’enregistrer",
+    "remove": "Supprimer",
+    "sign_in": "Connexion",
+    "sign_out": "Déconnexion",
+    "submit": "Envoyer",
+    "edit": "Éditer",
+    "lower_hand": "Rétracter la main levée",
+    "pick_reaction": "Sélectionner une réaction",
+    "raise_hand": "Lever la main",
+    "show_less": "Afficher moins",
+    "show_more": "Afficher plus",
+    "upload_file": "Télécharger un fichier"
+  },
+  "analytics_notice": "En participant à cette beta, vous consentez à la collecte de données anonymes, qui seront utilisées pour améliorer le produit. Vous trouverez plus d’informations sur les données collectées dans notre <2>Politique de vie privée</2> et notre <5>Politique de cookies</5>.",
+  "app_selection_modal": {
+    "continue_in_browser": "Continuer dans le navigateur",
+    "open_in_app": "Ouvrir dans l’application",
+    "text": "Prêt à rejoindre ?",
+    "title": "Choisissez l’application"
+  },
+  "call_ended_view": {
+    "create_account_button": "Créer un compte",
+    "create_account_prompt": "<0>Pourquoi ne pas créer un mot de passe pour conserver votre compte ?</0><1>Vous pourrez garder votre nom et définir un avatar pour vos futurs appels</1>",
+    "feedback_done": "<0>Merci pour votre commentaire !</0>",
+    "feedback_prompt": "<0>Nous aimerions avoir vos commentaires afin que nous puissions améliorer votre expérience.</0>",
+    "headline": "{{displayName}}, votre appel est terminé.",
+    "not_now_button": "Pas maintenant, retourner à l’accueil",
+    "reconnect_button": "Se reconnecter",
+    "survey_prompt": "Comment cela s’est-il passé ?"
+  },
+  "call_name": "Nom de l’appel",
+  "common": {
+    "display_name": "Pseudonyme",
+    "encrypted": "Chiffré",
+    "home": "Accueil",
+    "loading": "Chargement…",
+    "password": "Mot de passe",
+    "profile": "Profil",
+    "settings": "Paramètres",
+    "unencrypted": "Non chiffré",
+    "username": "Nom d’utilisateur",
+    "video": "Vidéo",
+    "next": "Suivant",
+    "analytics": "Analyses",
+    "preferences": "Préférences",
+    "reaction": "Réaction",
+    "audio": "Audio",
+    "avatar": "Photo de profil",
+    "back": "Retour",
+    "options": "Options",
+    "reactions": "Réactions",
+    "reconnecting": "Reconnexion en cours…"
+  },
+  "developer_mode": {
+    "always_show_iphone_earpiece": "Afficher l'option de l'écouteur d'iPhone sur toutes les plateformes",
+    "crypto_version": "Crypto version: {{version}}",
+    "custom_livekit_url": {
+      "current_url": "Actuellement défini sur : ",
+      "from_config": "Aucun remplacement n'est actuellement définie. L'URL issue du well-known ou de la configuration est utilisée.",
+      "label": "URL LiveKit personnalisée",
+      "reset": "Réinitialiser la surcharge",
+      "save": "Enregistrer",
+      "saving": "Enregistrement..."
+    },
+    "debug_tile_layout_label": "Débogage du disposition des tuiles",
+    "device_id": "ID d'appareil: {{id}}",
+    "duplicate_tiles_label": "Nombre de copies de tuile supplémentaires par participant",
+    "environment_variables": "Variables d'environnement",
+    "hostname": "Hostname : {{hostname}}",
+    "livekit_server_info": "LiveKit Server Info",
+    "livekit_sfu": "LiveKit SFU: {{url}}",
+    "matrix_id": "Beam ID: {{id}}",
+    "mute_all_audio": "Mettre en sourdine tous les sons (participants, réactions, sons de connexion)",
+    "show_connection_stats": "Affichez les statistiques de connexion",
+    "url_params": "Paramètres d'URL",
+    "matrixRTCMode": {
+      "Comptibility": {
+        "description": "Compatible avec les homeservers qui ne prennent pas en charge les sticky events (à condition que tous les autres clients EC soient en v0.17.0 ou ultérieure)",
+        "label": "Compatibilité : événements d'état et multi-SFU"
+      },
+      "Legacy": {
+        "description": "Compatible avec les anciennes versions d'EC qui ne prennent pas en charge le multi-SFU",
+        "label": "Legacy : événements d'état et SFU de membership le plus ancien"
+      },
+      "Matrix_2_0": {
+        "description": "Compatible uniquement avec les homeservers prenant en charge les sticky events et avec tous les clients EC en v0.17.0 ou ultérieure",
+        "label": "Matrix 2.0 : sticky events et multi-SFU"
+      },
+      "title": "Mode MatrixRTC"
+    }
+  },
+  "disconnected_banner": "La connexion avec le serveur a été perdue.",
+  "error": {
+    "call_is_not_supported": "L'appel n'est pas pris en charge",
+    "call_not_found": "Appel non trouvé",
+    "call_not_found_description": "<0>Ce lien ne semble pas appartenir à un appel existant. Vérifiez que vous avez le bon lien ou <2>créez-en un nouveau</2>.</0>",
+    "connection_lost": "Connexion perdue",
+    "connection_lost_description": "Vous avez été déconnecté de l'appel.",
+    "e2ee_unsupported": "Navigateur incompatible",
+    "e2ee_unsupported_description": "Votre navigateur Web ne prend pas en charge les appels chiffrés. Les navigateurs pris en charge incluent Chrome, Safari, and Firefox 117+.",
+    "failed_to_start_livekit": "Échec du démarrage de la connexion LiveKit",
+    "generic": "Quelque chose s'est mal passé",
+    "generic_description": "La soumission des journaux de débogage nous aidera à localiser le problème.",
+    "insufficient_capacity": "Capacité insuffisante",
+    "insufficient_capacity_description": "Le serveur a atteint sa capacité maximale et vous ne pouvez pas rejoindre l'appel pour le moment. Réessayez plus tard ou contactez votre administrateur de serveur si le problème persiste.",
+    "matrix_rtc_transport_missing": "Le serveur n'est pas configuré pour fonctionner avec {{brand}}. Veuillez contacter l'administrateur de votre serveur (Domaine : {{domain}}, code d'erreur : {{ errorCode }}).",
+    "membership_manager": "Erreur du Membership Manager",
+    "membership_manager_description": "Le Membership Manager a dû s'arrêter. Cela est dû à de nombreux échecs consécutifs de requêtes réseau.",
+    "no_matrix_2_authorization_service": "Le service d'autorisation de votre serveur média (SFU) n'est pas à jour.",
+    "open_elsewhere": "Ouvert dans un autre onglet",
+    "open_elsewhere_description": "{{brand}} a été ouvert dans un autre onglet. Si cela n'est pas le cas, essayez de recharger la page.",
+    "room_creation_restricted": "Échec de création d'appel",
+    "room_creation_restricted_description": "La création d'appels peut être restreinte aux utilisateurs autorisés uniquement. Réessayez plus tard ou contactez l'administrateur de votre serveur si le problème persiste.",
+    "unexpected_ec_error": "Une erreur inattendue s'est produite. (<0>Error Code:</0> <1>{{ errorCode }}</1>). Veuillez contacter votre administrateur de serveur."
+  },
+  "group_call_loader": {
+    "banned_body": "Vous avez été banni du groupe.",
+    "call_ended_heading": "Appel terminé",
+    "banned_heading": "Banni",
+    "call_ended_body": "Vous avez été supprimé de l'appel.",
+    "knock_reject_body": "Votre demande de rejoindre a été refusée.",
+    "knock_reject_heading": "Accès refusé",
+    "reason": "Raison : {{reason}}"
+  },
+  "handset": {
+    "overlay_back_button": "Retour au mode haut-parleur",
+    "overlay_description": "Fonctionne uniquement lorsque l'application est utilisé",
+    "overlay_title": "Mode combiné"
+  },
+  "hangup_button_label": "Terminer l’appel",
+  "header_label": "Accueil BEAM Call",
+  "header_participants_label": "Participants",
+  "invite_modal": {
+    "link_copied_toast": "Lien copié dans le presse-papier",
+    "title": "Inviter dans cet appel"
+  },
+  "join_existing_call_modal": {
+    "join_button": "Oui, rejoindre l’appel",
+    "text": "Cet appel existe déjà, voulez-vous le rejoindre ?",
+    "title": "Rejoindre un appel existant ?"
+  },
+  "layout_grid_label": "Grille",
+  "layout_spotlight_label": "Premier plan",
+  "lobby": {
+    "join_button": "Rejoindre l’appel",
+    "leave_button": "Revenir à l’historique des appels",
+    "ask_to_join": "Demande pour rejoindre l'appel",
+    "join_as_guest": "Rejoindre en tant qu'invité",
+    "waiting_for_invite": "Demande envoyée! En attente d'autorisation pour rejoindre…"
+  },
+  "log_in": "Se connecter",
+  "logging_in": "Connexion…",
+  "login_auth_links": "<0>Créer un compte</0> Or <2>Accès invité</2>",
+  "login_auth_links_prompt": "Pas encore enregistré ?",
+  "login_subheading": "Pour continuer à Beam",
+  "login_title": "Connexion",
+  "microphone_off": "Microphone éteint",
+  "microphone_on": "Microphone allumé",
+  "mute_microphone_button_label": "Couper le microphone",
+  "participant_count_one": "{{count, number}}",
+  "participant_count_other": "{{count, number}}",
+  "qr_code": "Code QR",
+  "rageshake_button_error_caption": "Réessayer d’envoyer les journaux",
+  "rageshake_request_modal": {
+    "body": "Un autre utilisateur dans cet appel a un problème. Pour nous permettre de résoudre le problème, nous aimerions récupérer un journal de débogage.",
+    "title": "Demande d’un journal de débogage"
+  },
+  "rageshake_send_logs": "Envoyer les journaux de débogage",
+  "rageshake_sending": "Envoi…",
+  "rageshake_sending_logs": "Envoi des journaux de débogage…",
+  "rageshake_sent": "Merci !",
+  "recaptcha_dismissed": "Recaptcha refusé",
+  "recaptcha_not_loaded": "Recaptcha non chargé",
+  "recaptcha_ssla_caption": "Ce site est protégé par ReCAPTCHA et the Google <2>Privacy Policy</2> et<6>Terms of Service</6> apply.<9></9> En cliquant sur \"S'incrire\", vous acceptez notre <12>Software and Services License Agreement (SSLA)</12>",
+  "register": {
+    "passwords_must_match": "Les mots de passe doivent correspondre",
+    "registering": "Enregistrement…"
+  },
+  "register_auth_links": "<0>Vous avez déjà un compte ?</0><1><0>Se connecter</0> Ou <2>Accès invité</2></1>",
+  "register_confirm_password_label": "Confirmer le mot de passe",
+  "register_heading": "Créer votre compte",
+  "return_home_button": "Retour à l’accueil",
+  "room_auth_view_continue_button": "Continuer",
+  "room_auth_view_ssla_caption": "En cliquant sur \"rejoindre l'appel maintenant\", vous acceptez nos <2>Software and Services License Agreement (SSLA)</2>",
+  "screenshare_button_label": "Partage d’écran",
+  "settings": {
+    "audio_tab": {
+      "effect_volume_description": "Ajustez le volume auquel les réactions et les effets \"main levée\" sont joués",
+      "effect_volume_label": "Volume des effets sonores"
+    },
+    "background_blur_header": "Arrière-plan",
+    "background_blur_label": "Flouer l'arrière-plan de la vidéo",
+    "blur_not_supported_by_browser": "(Le flou d'arrière-plan n'est pas pris en charge par cet appareil.)",
+    "developer_tab_title": "Développeur",
+    "devices": {
+      "camera": "Caméra",
+      "camera_numbered": "Caméra {{n}}",
+      "change_device_button": "Changer d'appareil audio",
+      "default": "Par défaut",
+      "default_named": "Par défaut <2>({{name}})</2>",
+      "handset": "Mode combiné",
+      "loudspeaker": "Haut-parleur",
+      "microphone": "Microphone",
+      "microphone_numbered": "Microphone {{n}}",
+      "speaker": "Haut-parleur",
+      "speaker_numbered": "Haut-parleur {{n}}"
+    },
+    "feedback_tab_body": "Si vous rencontrez des problèmes, ou vous voulez simplement faire un commentaire, faites-en une courte description ci-dessous.",
+    "feedback_tab_description_label": "Votre commentaire",
+    "feedback_tab_h4": "Envoyer un commentaire",
+    "feedback_tab_send_logs_label": "Inclure les journaux de débogage",
+    "feedback_tab_thank_you": "Merci, nous avons reçu vos commentaires !",
+    "feedback_tab_title": "Commentaires",
+    "opt_in_description": "<0></0><1></1>Vous pouvez retirer votre consentement en décochant cette case. Si vous êtes actuellement en communication, ce paramètre prendra effet à la fin de l’appel.",
+    "preferences_tab": {
+      "developer_mode_label": "Mode développeur",
+      "introduction": "Vous pouvez ici configurer des options supplémentaires pour une expérience améliorée.",
+      "reactions_play_sound_description": "Jouez un effet sonore lorsque quelqu'un envoie une réaction lors d'un appel.",
+      "reactions_play_sound_label": "Jouer les sons de réaction",
+      "reactions_show_label": "Afficher les réactions",
+      "show_hand_raised_timer_description": "Afichez un minuteur lorsque un participant lève la main",
+      "show_hand_raised_timer_label": "Afficher la durée de la main levée",
+      "developer_mode_label_description": "Activer le mode développeur et afficher l'onglet paramètres de développement.",
+      "reactions_show_description": "Affichez un animation lorsque quelqu'un envoie une réaction."
+    }
+  },
+  "star_rating_input_label_one": "{{count}} étoile",
+  "star_rating_input_label_other": "{{count}} étoiles",
+  "start_new_call": "Démarrer un nouvel appel",
+  "start_video_button_label": "Démarrer la vidéo",
+  "stop_screenshare_button_label": "L’écran est partagé",
+  "stop_video_button_label": "Arrêter la vidéo",
+  "submitting": "Envoi…",
+  "switch_camera": "Changer de caméra",
+  "unauthenticated_view_body": "Pas encore enregistré ? <2>Créer un compte</2>",
+  "unauthenticated_view_login_button": "Connectez-vous à votre compte",
+  "unauthenticated_view_ssla_caption": "En cliquant sur \"Aller\", vous acceptez notre <2>Contrat de licence de logiciel et de services (SSLA)</2>.",
+  "unmute_microphone_button_label": "Activer le micro",
+  "version": "{{productName}} version : {{version}}",
+  "video_tile": {
+    "always_show": "Toujours afficher",
+    "camera_starting": "Charger la vidéo...",
+    "change_fit_contain": "Ajuster au cadre",
+    "collapse": "Réduire",
+    "expand": "Étendre",
+    "mute_for_me": "Mettre en sourdine pour moi",
+    "muted_for_me": "Mis en sourdine pour moi",
+    "volume": "Volume",
+    "waiting_for_media": "En attente de média..."
+  }
+}
