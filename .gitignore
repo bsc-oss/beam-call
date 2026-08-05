@@ -1,0 +1,45 @@
+node_modules
+.DS_Store
+.env
+dist
+dist-ssr
+*.local
+*.bkp
+.idea/
+public/config.json
+backend/synapse_tmp/*
+backend/synapse_tmp_othersite/*
+/coverage
+config.json
+
+# Yarn
+yarn-error.log
+/.pnp.*
+/.yarn/*
+!/.yarn/patches
+!/.yarn/plugins
+!/.yarn/releases
+!/.yarn/sdks
+!/.yarn/versions
+# old yarn based linking
+/.links.yaml
+/.links.disabled.yaml
+/.links.temp-disabled.yaml
+# pnpm based linking
+/.links.cjs
+/.links.disabled.cjs
+/.links.temp-disabled.cjs
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+*storybook.log
+storybook-static
+
+# PG_CHANGED
+.npmrc
+custom-cas/
+local.properties.example

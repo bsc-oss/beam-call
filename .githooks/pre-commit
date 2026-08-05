@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Checks if there currently is linking configured. Informs the user to disable linking before committing.
+
+PNPMFILE=.pnpmfile.cjs
+if test -f "$PNPMFILE"; then
+  echo "[pnpm-linker] The pre-commit hook detected $PNPMFILE which implies you have linked packages in your pnpm-lock.yaml. Run pnpm links:off and commit again. See also linking.md."
+  exit 1
+fi
