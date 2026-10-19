@@ -1,0 +1,116 @@
+/*
+Copyright 2021-2024 New Vector Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE in the repository root for full details.
+*/
+
+.inRoom {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Normally the footer uses a transparent background to allow our expressive
+page gradients to shine through. However, we sometimes need to visually separate
+it from the content underneath. If the call layout is overflowing, or if the
+spotlight tile is maximised and displaying video, apply a gradient background. */
+.overflowing > .footer,
+.fixedGrid:has(
+    > .tile[data-maximised="true"]
+      .spotlightItem[data-background="transparent"][data-video-enabled="true"][aria-hidden="false"]
+  )
+  ~ .footer {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    var(--cpd-color-bg-canvas-default) 100%
+  );
+}
+
+.header {
+  position: sticky;
+  flex-shrink: 0;
+  inset-block-start: 0;
+  z-index: var(--call-view-header-footer-layer);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    var(--cpd-color-bg-canvas-default) 100%
+  );
+}
+
+.header.hidden {
+  display: none;
+}
+
+.header.overlay {
+  /* Note that the header is still position: sticky in this case so that certain
+    tiles can move down out of the way of the header when visible. */
+  opacity: 1;
+  transition: opacity 0.15s;
+}
+
+.header.overlay.hidden {
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  /* Switch to position: absolute so the header takes up no space in the layout
+    when hidden. */
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+}
+
+.header.overlay:has(:focus-visible) {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.header.filler {
+  block-size: var(--cpd-space-6x);
+  background: none;
+}
+
+@media (max-width: 320px) {
+  .invite {
+    display: none;
+  }
+}
+
+.fixedGrid {
+  position: absolute;
+  inline-size: 100%;
+  align-self: center;
+}
+
+.scrollingGrid {
+  position: relative;
+  flex-grow: 1;
+  inline-size: 100%;
+  align-self: center;
+}
+
+.fixedGrid,
+.scrollingGrid {
+  /* Disable pointer events so the overlay doesn't block interaction with
+  elements behind it */
+  pointer-events: none;
+
+  > :not(:first-child) {
+    pointer-events: initial;
+  }
+
+  .tile {
+    position: absolute;
+    inset-block-start: 0;
+  }
+}
+
+.tile {
+  position: relative;
+  flex-grow: 1;
+}

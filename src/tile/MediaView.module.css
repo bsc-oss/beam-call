@@ -1,0 +1,309 @@
+/*
+Copyright 2022-2024 New Vector Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE in the repository root for full details.
+*/
+
+.media {
+  container-name: mediaView;
+  container-type: size;
+  border-radius: var(--media-view-border-radius);
+  /*Add spacing for the hover boarder. Otherwise it might get clipped.*/
+  margin: var(--hover-space-margin);
+  display: grid;
+  grid-template-areas: "content";
+  place-items: stretch;
+}
+
+.media video {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+  background-color: var(--video-tile-background);
+  /* This transform is a no-op, but it forces Firefox to use a different
+  rendering path, one that actually clips the corners of <video> elements into
+  the intended rounded shape. We can remove this if Firefox stops being broken. */
+  transform: translate(0);
+}
+
+.media[data-video-enabled="false"] video {
+  display: none;
+}
+
+.media.mirror video {
+  transform: scaleX(-1);
+  /* In FF if you add a transform: scale/translate/matrix filter on an element,
+  it'll ignore the parents' border-radius, so force back the radius to avoid UI glitch*/
+  border-radius: inherit;
+}
+
+.media[data-video-fit="cover"] video {
+  object-fit: cover;
+}
+
+.media[data-video-fit="contain"] video {
+  object-fit: contain;
+}
+
+.bg {
+  grid-area: content;
+  inline-size: 100%;
+  block-size: 100%;
+  border-radius: inherit;
+  contain: strict;
+}
+
+.media[data-background="solid"] .bg {
+  background-color: var(--video-tile-background);
+}
+
+.waves {
+  transition: opacity ease 0.3s;
+}
+
+.waves[data-visible="true"] {
+  opacity: 1;
+}
+
+.waves[data-visible="false"] {
+  opacity: 0;
+
+  @media not (prefers-reduced-motion) {
+    .wave {
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+}
+
+.wave {
+  border: var(--cpd-border-width-1) solid var(--cpd-color-alpha-gray-300);
+  transition: transform ease 0.2s;
+}
+
+.wave,
+.speakingBorder {
+  border-radius: var(--cpd-radius-pill-effect);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.speakingBorder {
+  /* PG_CHANGED: gold gradient, kept in sync with .tile.speaking in GridTile.
+     Both accent tokens resolve identically in light and dark. */
+  --speaking-start: color-mix(
+    in srgb,
+    var(--cpd-color-bg-accent-rest) 55%,
+    transparent
+  );
+  --speaking-end: color-mix(
+    in srgb,
+    var(--cpd-color-bg-accent-pressed) 55%,
+    transparent
+  );
+  background:
+    radial-gradient(var(--speaking-start), var(--speaking-end)),
+    linear-gradient(180deg, var(--speaking-start) 0%, var(--speaking-end) 100%);
+  background-blend-mode: overlay, normal;
+  outline: var(--cpd-border-width-4) solid var(--cpd-color-bg-canvas-default);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: var(--cpd-border-width-2);
+    border-radius: var(--cpd-radius-pill-effect);
+    background: var(--cpd-color-bg-canvas-default);
+  }
+}
+
+.avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 100%;
+  transition: opacity 0.2s;
+}
+
+.avatar[data-style="translucent"] {
+  opacity: 50%;
+}
+
+/* CSS makes us put a condition here, even though all we want to do is
+unconditionally select the container so we can use cqmin units */
+@container mediaView (width > 0) {
+  .avatar {
+    /* Half of the smallest dimension of the tile */
+    inline-size: 50cqmin;
+    block-size: 50cqmin;
+  }
+
+  .waves + .avatar {
+    /* Make the avatar slightly smaller to accommodate sound waves, if present */
+    inline-size: 38cqmin;
+    block-size: 38cqmin;
+  }
+
+  .wave:nth-child(1) {
+    inline-size: calc(38cqmin + var(--cpd-space-5x) + 3 * var(--cpd-space-10x));
+    block-size: calc(38cqmin + var(--cpd-space-5x) + 3 * var(--cpd-space-10x));
+    background: var(--cpd-color-alpha-gray-200);
+  }
+
+  .wave:nth-child(2) {
+    inline-size: calc(38cqmin + var(--cpd-space-5x) + 2 * var(--cpd-space-10x));
+    block-size: calc(38cqmin + var(--cpd-space-5x) + 2 * var(--cpd-space-10x));
+    background: var(--cpd-color-alpha-gray-300);
+  }
+
+  .wave:nth-child(3) {
+    inline-size: calc(38cqmin + var(--cpd-space-5x) + var(--cpd-space-10x));
+    block-size: calc(38cqmin + var(--cpd-space-5x) + var(--cpd-space-10x));
+    background: var(--cpd-color-alpha-gray-400);
+  }
+
+  .speakingBorder {
+    inline-size: calc(38cqmin + var(--cpd-space-3x));
+    block-size: calc(38cqmin + var(--cpd-space-3x));
+  }
+}
+
+.avatar > img {
+  /* To make avatars scale smoothly with their tiles during animations, we
+  override the styles set on the element */
+  inline-size: 100% !important;
+  block-size: 100% !important;
+}
+
+.fg {
+  grid-area: content;
+  --fg-inset: var(
+    --media-view-fg-inset,
+    calc(var(--media-view-border-radius) - var(--cpd-space-3x))
+  );
+  padding: var(--fg-inset);
+  transition: padding 0.3s;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: "status reactions" "nameTag button";
+  gap: var(--cpd-space-1x);
+  place-items: start;
+  contain: strict;
+}
+
+@media (prefers-reduced-motion) {
+  .fg {
+    transition: none;
+  }
+}
+
+.nameTag {
+  grid-area: nameTag;
+  place-self: end start;
+  padding: var(--cpd-space-1x);
+  padding-block: var(--cpd-space-1x);
+  color: var(--cpd-color-text-primary);
+  background-color: var(--cpd-color-bg-canvas-default);
+  display: flex;
+  align-items: center;
+  border-radius: var(--cpd-radius-pill-effect);
+  user-select: none;
+  overflow: hidden;
+  box-shadow: var(--small-drop-shadow);
+  box-sizing: border-box;
+  max-inline-size: 100%;
+}
+
+.status {
+  grid-area: status;
+  color: var(--cpd-color-text-primary);
+  user-select: none;
+  overflow: hidden;
+  margin-block-start: calc(var(--cpd-space-3x) - var(--fg-inset));
+  margin-inline-start: calc(var(--cpd-space-4x) - var(--fg-inset));
+
+  svg {
+    color: var(--cpd-color-icon-tertiary);
+    vertical-align: text-bottom;
+    margin-inline-end: 3px;
+    block-size: 1.2em;
+    inline-size: 1.2em;
+  }
+}
+
+.reactions {
+  grid-area: reactions;
+  place-self: start end;
+  display: flex;
+  gap: var(--cpd-space-1x);
+}
+
+.nameTag > svg,
+.nameTag > span {
+  flex-shrink: 0;
+}
+
+.nameTag > .name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-inline: var(--cpd-space-2x);
+  flex-shrink: 1;
+}
+
+.errorIcon {
+  display: block;
+  color: var(--cpd-color-icon-critical-primary);
+}
+
+.fg > button {
+  appearance: none;
+  border: none;
+  border-radius: var(--cpd-radius-pill-effect);
+  padding: var(--cpd-space-1x);
+  background: var(--cpd-color-bg-action-primary-rest);
+  box-shadow: var(--small-drop-shadow);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 0.15s,
+    background-color 0.1s;
+}
+
+.fg:has(:focus-visible) > button,
+.fg > button[data-enabled="true"],
+.fg > button[data-state="open"] {
+  opacity: 1;
+}
+
+@media (hover) {
+  .fg:hover > button {
+    opacity: 1;
+  }
+
+  .fg > button:hover {
+    background: var(--cpd-color-bg-action-primary-hovered);
+  }
+}
+
+.fg > button:active {
+  background: var(--cpd-color-bg-action-primary-pressed);
+}
+
+.fg > button[data-state="open"] {
+  background: var(--cpd-color-bg-action-primary-pressed);
+}
+
+.fg > button > svg {
+  display: block;
+  color: var(--cpd-color-icon-on-solid-primary);
+}
+
+.fg > button:first-of-type {
+  grid-area: button;
+  place-self: end;
+}

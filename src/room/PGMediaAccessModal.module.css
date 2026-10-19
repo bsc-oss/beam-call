@@ -1,0 +1,45 @@
+/*
+Copyright 2026 Belgian Secure Communications (BSC)
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE in the repository root for full details.
+*/
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*
+ * In a small viewport, such as the picture-in-picture iframe of the web
+ * client, the regular dialog (580px wide, 40px of padding, 32px below the
+ * text) does not fit. Make it compact enough that the text and the button
+ * fit without scrolling: no header, tight padding, small text.
+ */
+.compact {
+  max-block-size: 100%;
+  max-inline-size: calc(100% - var(--cpd-space-4x));
+  overflow: auto;
+}
+
+/* Doubled to beat the modal's own `.dialog .body` rule */
+.compact .body.body {
+  padding: var(--cpd-space-3x) var(--cpd-space-4x);
+}
+
+.compact .text {
+  font: var(--cpd-font-body-sm-regular);
+  margin: 0;
+}
+
+.compact .actions {
+  margin-block-start: var(--cpd-space-2x);
+}
+
+/* Compound buttons only come in md and lg; tripled to beat their size rule */
+.compact .button.button.button {
+  min-block-size: var(--cpd-space-7x);
+  padding-block: 0;
+  padding-inline: var(--cpd-space-3x);
+  font: var(--cpd-font-body-sm-semibold);
+}
